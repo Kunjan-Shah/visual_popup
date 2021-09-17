@@ -138,3 +138,14 @@ body {
     padding: 0 !important;
     height: 100% !important;
 }
+
+.iti {
+    height: inherit !important;
+}
+
+.iti > input {
+    width: 67% !important;
+    position: relative !important;
+    left: 33% !important;
+    border: none !important;
+}
