@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual popup</title>
+    <link rel="stylesheet" href="completed-styles.css">
+    <!-- <link rel="stylesheet" href="./intl-tel-input-17.0.0/build/css/intlTelInput.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.bitespeed.co/whatsapp-snippets/demo.css">
+    <!-- <link rel="stylesheet" href="https://cdn.bitespeed.co/whatsapp-snippets/intlTelInput.min.css"> -->
+</head>
+<body>
+    <div class="masterContainerImageAtRight completed-state" id="visualPopupImageAtRight">
+        <div class="popup" id="popupDiv">
+            <div class="bs_overlay">
+                <div class="contentContainer">
+                    <div class="textContainer" id="masterContainerImageAtRighttextContainer">
+                        <div class="title blur" id="masterContainerImageAtRighttitle">
+                            Here is your discount code:                        
+                        </div>
+                        <div class="subtitleFlexbox" id="subtitleFlexbox">
+                            <div class="subtitle" id="visualPopupDiscountCodeDiv">HAPPYTAILS</div>
+                            <div class="copyToClipboard">
+                                <button class="copyToClipboardBtn" onclick="copyToClipboard()" onmouseout="showToolTip()">
+                                    <span class="tooltipText" id="tooltipText">Copy to clipboard</span>
+                                    <img src="./copy.png">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bs_text blur" id="masterContainerImageAtRighttext">
+                            Thank you for subscribing!                                              
+                        </div>     
+                    </div>
+                    <div class="mainImage blur" id="masterContainerImageAtRightmainImage">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.bitespeed.co/whatsapp-snippets/intlTelInput.min.js"></script> -->
+    <script>
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            // any initialisation options go here
+        });
+    </script>
+    <script>
+        function copyToClipboard() {
+          var copyText = document.getElementById("visualPopupDiscountCodeDiv");
+          console.log(copyText.innerHTML);
+        //   copyText.select();
+        //   copyText.setSelectionRange(0, 99999);
+          navigator.clipboard.writeText(copyText.innerHTML);
+          
+          var tooltip = document.getElementById("tooltipText");
+          tooltip.innerHTML = "Copied";
+        }
+        
+        function showToolTip() {
+          var tooltip = document.getElementById("tooltipText");
+          tooltip.innerHTML = "Copy to clipboard";
+        }
+    </script>
+</body>
+</html>
